@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/microservice-etudiant-main/MicroServer-EurekaClient.iml" filepath="$PROJECT_DIR$/microservice-etudiant-main/MicroServer-EurekaClient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/microservice-reservation-main/MicroServer-EurekaClient (1).iml" filepath="$PROJECT_DIR$/microservice-reservation-main/MicroServer-EurekaClient (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/microservice-bloc/SpringProject.iml" filepath="$PROJECT_DIR$/microservice-bloc/SpringProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/microservice-foyer-main/SpringProject (1).iml" filepath="$PROJECT_DIR$/microservice-foyer-main/SpringProject (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/microservice-chambre-main/SpringProject (2).iml" filepath="$PROJECT_DIR$/microservice-chambre-main/SpringProject (2).iml" />
+      <module fileurl="file://$PROJECT_DIR$/microservice-universite-main/SpringProject (3).iml" filepath="$PROJECT_DIR$/microservice-universite-main/SpringProject (3).iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/miniprojet-web-distributé.iml" filepath="$PROJECT_DIR$/.idea/miniprojet-web-distributé.iml" />
+    </modules>
+  </component>
+</project>

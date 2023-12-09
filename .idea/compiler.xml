@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="EurekaServer" />
+        <module name="ServiceEtudiant" />
+        <module name="ServiceBloc" />
+        <module name="SpringProject (2)" />
+        <module name="SpringProject (3)" />
+        <module name="MicroServer-EurekaClient" />
+        <module name="SpringProject (1)" />
+        <module name="ServiceReservation" />
+        <module name="ServiceFoyer" />
+        <module name="SpringProject" />
+        <module name="ServiceUniversite" />
+        <module name="APIGateway" />
+        <module name="MicroServer-EurekaClient (1)" />
+        <module name="ServiceChambre" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="MicroServer-EurekaClient" target="17" />
+      <module name="MicroServer-EurekaClient (1)" target="17" />
+      <module name="SpringProject" target="17" />
+      <module name="SpringProject (1)" target="17" />
+      <module name="SpringProject (2)" target="17" />
+      <module name="SpringProject (3)" target="17" />
+      <module name="SpringProject (4)" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="APIGateway" options="-parameters" />
+      <module name="EurekaServer" options="-parameters" />
+      <module name="MicroServer-EurekaClient" options="-parameters" />
+      <module name="MicroServer-EurekaClient (1)" options="-parameters" />
+      <module name="ServiceBloc" options="-parameters" />
+      <module name="ServiceChambre" options="-parameters" />
+      <module name="ServiceEtudiant" options="-parameters" />
+      <module name="ServiceFoyer" options="-parameters" />
+      <module name="ServiceReservation" options="-parameters" />
+      <module name="ServiceUniversite" options="-parameters" />
+      <module name="SpringProject" options="-parameters" />
+      <module name="SpringProject (1)" options="-parameters" />
+      <module name="SpringProject (2)" options="-parameters" />
+      <module name="SpringProject (3)" options="-parameters" />
+      <module name="SpringProject (4)" options="-parameters" />
+    </option>
+  </component>
+</project>

@@ -1,0 +1,121 @@
+version: "3.9"
+services:
+
+  Eureka:
+    container_name: eureka
+    build: .\EurekaServer
+    ports:
+      - "8761:8761"
+    image: "eureka"
+    environment:
+      - eureka.client.server-url.default-zone=http://localhost:8761/eureka/
+
+  db-mysql:
+    image: "mysql:5.6"
+    container_name: db-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=
+      - MYSQL_DATABASE=miniprojet
+    ports:
+      - "3309:3306"
+    restart: unless-stopped
+
+  mongodb:
+    image: "mongo:latest"
+    container_name: mongodb
+    ports:
+      - "27020:27020"  # Port par défaut de MongoDB
+    command: mongod --port 27020
+    restart: unless-stopped
+
+  bloc:
+    container_name: ServiceBloc
+    build: ./microservice-bloc
+    ports:
+      - "8081:8081"
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://localhost:8761/eureka/
+    depends_on:
+      - Eureka
+  foyer:
+    container_name: ServiceFoyer
+    build: ./microservice-foyer-main
+    ports:
+      - "8090:8090"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db-mysql:3306/foyer?createDatabaseIfNotExist=true&userSSL=false
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=
+      - eureka.client.serviceUrl.defaultZone=http://localhost:8761/eureka/
+    depends_on:
+      - Eureka
+      - db-mysql
+
+  chambre:
+    container_name: ServiceChambre
+    build: ./microservice-chambre-main
+    ports:
+      - "8082:8082"
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://localhost:8761/eureka/
+    depends_on:
+      - Eureka
+
+  universite:
+    container_name: ServiceUniversite
+    build: ./microservice-universite-main
+    ports:
+      - "8910:8910"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db-mysql:3306/universite?createDatabaseIfNotExist=true&userSSL=false
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=
+      - eureka.client.serviceUrl.defaultZone=http://localhost:8761/eureka/
+    depends_on:
+      - Eureka
+      - db-mysql
+
+  reservation:
+    container_name: ServiceReservation
+    build: ./microservice-reservation-main
+    ports:
+      - "8091:8091"
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://localhost:8761/eureka/
+    depends_on:
+      - Eureka
+
+  etudiant:
+    container_name: ServiceEtudiant
+    build: ./microservice-etudiant-main
+    ports:
+      - "8087:8087"
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://localhost:8761/eureka/
+    depends_on:
+      - Eureka
+
+  enseignant:
+    container_name: ServiceEnseignant
+    build: ./microservice-enseignant
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGO_URI=mongodb+srv://micro:micro123@cluster0.ibezkgc.mongodb.net/microservice?retryWrites=true&w=majority
+      - eureka.client.serviceUrl.defaultZone=http://localhost:8761/eureka/
+    depends_on:
+      - Eureka
+      - mongodb
+
+  apigateway:
+    container_name: Api_Gateway_Server
+    image: "apigatewayms"
+    build: ./APIGateway
+    ports:
+      - "8089:8089"
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://localhost:8761/eureka/
+    restart: unless-stopped
+    depends_on:
+      - Eureka
+
